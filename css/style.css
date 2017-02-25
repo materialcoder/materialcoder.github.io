@@ -1,0 +1,64 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+body {
+	font-family: "Microsoft Yahei";
+}
+a {
+	text-decoration: none;
+}
+.container {
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	min-width: 800px;
+}
+.logo {
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
+}
+
+.content {
+	width: 100%;
+}
+.content div {
+	width: 30%;
+	height: auto;
+	border: 1px solid #ccc;
+	float: left;
+	margin-left: 2.5%;
+	padding: 10px;
+	box-sizing: border-box;
+}
+.ife h2 {
+	font-size: 24px;
+	line-height: 40px;
+}
+.ife_html h2 {
+	color: #3CB371;
+}
+.ife_js h2 {
+	color: #CD5C5C;
+}
+.ife_eg h2 {
+	color: #1E90FF;
+}
+.ife a {
+	font-size: 16px;
+	color: #228B22;
+	display: block;
+	line-height: 26px;
+	padding-left: 20px;
+}
+.ife a:hover {
+	text-decoration: underline;
+}
+.ife_js a {
+	color: #D87093;
+}
+.ife_eg a {
+	color: #0066FF ;
+}
