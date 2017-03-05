@@ -88,3 +88,8 @@ a {
 .ife_baidu a {
 	color: #333;
 }
+.ife p {
+	padding-left: 20px;
+	font-size: 14px;
+	color: #666;
+}
