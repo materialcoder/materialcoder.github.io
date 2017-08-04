@@ -384,3 +384,29 @@ a {
 	text-align: center;
 	margin-top: 3%;
 }
+.container .content .portfolio .portfolio-cont {
+	width: 70%;
+	background: rgb(61, 63, 70);
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	margin-left: -35%;
+	padding: 10px;
+	text-align: center;
+}
+.container .content .portfolio .portfolio-cont_item {
+	width: 30%;
+	overflow: hidden;
+	float: left;
+	margin: calc(10%/6);
+	border: 2px solid #dc1d44;
+	box-sizing: border-box;
+}
+.container .content .portfolio .portfolio-cont_item a {
+	width: 100%;
+	display: block;
+}
+.container .content .portfolio .portfolio-cont_item a img {
+	display: block;
+	width: 100%;
+}
