@@ -7,50 +7,56 @@
 	<link rel="stylesheet" href="imgs/iconfont/iconfont.css">
 </head>
 <body>
+	<div class="loading"></div>
 	<div class="container">
 		<div class="nav" id="nav">
 			<ul>
 				<li>
-					<input type="radio" name="select" value="index">
-					<a href="#banner">首页</a>
+					<input type="radio" name="select" value="index" checked>
+					<a href="#banner" title="Home">首页</a>
+					<span class="nav-tooltip">Home</span>
 				</li>
 				<li>
 					<input type="radio" name="select" value="About Me">
-					<a href="#about">About Me</a>
+					<a href="#about" title="About Me">About Me</a>
+					<span class="nav-tooltip">About</span>
 				</li>
 				<li>
 					<input type="radio" name="select" value="Education">
-					<a href="#education">Education</a>
+					<a href="#education" title="Education">Education</a>
+					<span class="nav-tooltip">Education</span>
 				</li>
 				<li>
 					<input type="radio" name="select" value="Skills">
-					<a href="#skills">Skills</a>
+					<a href="#skills" title="Skills">Skills</a>
+					<span class="nav-tooltip">Skills</span>
 				</li>
 				<li>
-					<input type="radio" name="select" value="Portfolio" checked>
-					<a href="#portfolio">Portfolio</a>
+					<input type="radio" name="select" value="Portfolio">
+					<a href="#portfolio" title="Portfolio">Portfolio</a>
+					<span class="nav-tooltip">Portfolio</span>
 				</li>
 			</ul>
 		</div>
 		<div class="content" id="content">
 			<section class="scroll banner" id="banner">
 				<div class="banner-cont">
-					<h1>WEB FRONTEND DEVELOPER</h1>
+					<h1>WEB FRONT-END DEVELOPER</h1>
 					<p>If I have seen farther than others, it is because I was standing on the shoulders of giants.</p>
 				</div>
-				<i class="iconfont icon-more"></i>
+				<i class="iconfont icon-more more"></i>
 			</section>
 			<section class="scroll about" id="about">
 				<h2>ABOUT&nbsp;&nbsp;&nbsp;ME</h2>
 				<div class="information">
-					<div class="left">
+					<div class="info-left left">
 						<div class="photo"></div>
 						<div class="links">
 							<a href="https://github.com/materialcoder" title="github" class="iconfont icon-github" target="_blank"></a>
 							<a href="http://blog.csdn.net/github_39673115" title="blog" class="iconfont icon-logo_csdn" target="_blank"></a>
 						</div>
 					</div>
-					<div class="right">
+					<div class="info-right right">
 						<p class="left">姓 名 : 任勇军</p>
 						<p class="right">出生年月 : 1992.01.18</p>
 						<p class="left">学 历 : 硕士</p>
@@ -95,27 +101,27 @@
 						<div class="bar-item">
 							<p class="bar-item_label">HTML/HTML5</p>
 							<div class="bar-item_bar" data-value="95"></div>
-							<p class="bar-item_tooltip">95%</p>
+							<p class="bar-item_tooltip"></p>
 						</div>
 						<div class="bar-item">
 							<p class="bar-item_label">CSS/CSS3</p>
 							<div class="bar-item_bar" data-value="90"></div>
-							<p class="bar-item_tooltip">90%</p>
+							<p class="bar-item_tooltip"></p>
 						</div>
 						<div class="bar-item">
 							<p class="bar-item_label">JavaScript</p>
 							<div class="bar-item_bar" data-value="90"></div>
-							<p class="bar-item_tooltip">90%</p>
+							<p class="bar-item_tooltip"></p>
 						</div>
 						<div class="bar-item">
 							<p class="bar-item_label">PHP</p>
 							<div class="bar-item_bar" data-value="70"></div>
-							<p class="bar-item_tooltip">70%</p>
+							<p class="bar-item_tooltip"></p>
 						</div>
 						<div class="bar-item">
 							<p class="bar-item_label">MySQL</p>
 							<div class="bar-item_bar" data-value="60"></div>
-							<p class="bar-item_tooltip">50%</p>
+							<p class="bar-item_tooltip"></p>
 						</div>
 					</div>
 				</div>
@@ -125,56 +131,34 @@
 				<div class="portfolio-cont">
 					<div class="portfolio-cont_item_wrapper">
 						<div class="portfolio-cont_item">
-							<a href="http://chinesetea.center" target="_blank"><img src="imgs/1.png" alt=""></a>
+							<img src="imgs/1.png" alt="">
+							<div class="cover"><a href="http://chinesetea.center" target="_blank">A tea website</a></div>
 						</div>
 						<div class="portfolio-cont_item">
-							<a href="http://datechat.left" target="_blank"><img src="imgs/2.png" alt=""></a>
+							<img src="imgs/2.png" alt="">
+							<div class="cover"><a href="http://datechat.left" target="_blank">An online dating website</a></div>
 						</div>
 						<div class="portfolio-cont_item">
-							<a href="http://materialcoder.me/BaiduIFE2017/HTML-CSS/task6/index.html" target="_blank"><img src="imgs/3.png" alt=""></a>
+							<img src="imgs/3.png" alt="">
+							<div class="cover"><a href="http://materialcoder.me/BaiduIFE2017/HTML-CSS/task6/index.html" target="_blank">A newspaper layout page</a></div>
 						</div>
 						<div class="portfolio-cont_item">
-							<a href="http://materialcoder.me/BaiduIFE2017/HTML-CSS/task7/index.html" target="_blank"><img src="imgs/4.png" alt=""></a>
+							<img src="imgs/4.png" alt="">
+							<div class="cover"><a href="http://materialcoder.me/BaiduIFE2017/HTML-CSS/task7/index.html" target="_blank">A common technology product homepage</a></div>
 						</div>
 						<div class="portfolio-cont_item">
-							<a href="http://materialcoder.me/BaiduIFE2017/5%20%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/index.html" target="_blank"><img src="imgs/5.png" alt=""></a>
+							<img src="imgs/5.png" alt="">
+							<div class="cover"><a href="http://materialcoder.me/BaiduIFE2017/5%20%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/index.html" target="_blank">A simple online music player</a></div>
 						</div>
 						<div class="portfolio-cont_item">
-							<a href="http://materialcoder.me/BaiduIFE2017" target="_blank"><img src="imgs/6.png" alt=""></a>
+							<img src="imgs/6.png" alt="">
+							<div class="cover"><a href="http://materialcoder.me/BaiduIFE2017" target="_blank">Some more small demos</a></div>
 						</div>
 					</div>
 				</div>
 			</section>
 		</div>
 	</div>
-	<script>
-		(function scroll() {
-			var select = document.getElementsByTagName('input');
-			var content = document.getElementById('content');
-			for(var i=0, len=select.length;i<len;i++) {
-				select[i].id = i;
-				select[i].onclick = function() {
-					if(this.checked) {
-						content.style.top = (-100*this.id) + "%";
-					}
-				}
-			}
-		})();
-
-
-		// bars
-		var $ = function(e) {
-			return document.querySelectorAll(e);
-		};
-		var bar = $(".bar-item_bar");
-		var tootip = $(".bar-item_tooltip");
-		for(var i=0, len = bar.length;i<len;i++) {
-			bar[i].style.width = bar[i].dataset.value + "%";
-			tootip[i].innerHTML = bar[i].dataset.value + "%";
-			tootip[i].style.right = (100 - bar[i].dataset.value + 3) +"%";
-		}
-		
-		
-	</script>
+	<script src="js/main.js"></script>
 </body>
 </html>
