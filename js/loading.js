@@ -13,7 +13,7 @@ imgs.forEach(function(item, index) {
 		oImg.onload = null;
 		num++;
 		$(".loading b")[0].innerHTML = parseInt(num/len * 100) + "%";
-		if(num > len) {
+		if(num >= len) {
 			$('.loading')[0].style.display = "none";
 			isScroll = true;
 		}
