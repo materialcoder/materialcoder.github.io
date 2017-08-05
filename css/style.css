@@ -24,6 +24,8 @@ a {
 	background: rgb(25, 28, 37);
 	z-index: 10000;
 	color: #dc1d44;
+	opacity: 1;
+	transition: all 1s ease-in-out .1s;
 }
 .loading .pic {
 	position: absolute;

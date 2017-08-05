@@ -14,7 +14,8 @@ imgs.forEach(function(item, index) {
 		num++;
 		$(".loading b")[0].innerHTML = parseInt(num/len * 100) + "%";
 		if(num >= len) {
-			$('.loading')[0].style.display = "none";
+			$('.loading')[0].style.transform = "scale(0) rotate(720deg)";
+			$('.loading')[0].style.opacity = "0";
 			isScroll = true;
 		}
 	}
