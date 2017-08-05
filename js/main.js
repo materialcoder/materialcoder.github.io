@@ -1,27 +1,9 @@
+// 页面切换
+var $ = function(e) {
+	return document.querySelectorAll(e);
+};
+
 window.onload = function() {
-	var $ = function(e) {
-		return document.querySelectorAll(e);
-	};
-	
-	var isScroll = false; //加载时禁止滚动
-	// 加载进度条
-	(function loading() {
-		var imgs = $('img');
-		var num = 0;
-		var len = imgs.length;
-		imgs.forEach(function(item, index) {
-			var oImg = new Image();
-			oImg.onload = function() {
-				num++;
-				$(".loading b")[0].innerHTML = parseInt(num/len * 100) + "%";
-				if(num > len) {
-					$('.loading')[0].style.display = "none";
-					isScroll = true;
-				}
-			}
-			oImg.src = item.src
-		})
-	})();
 
 	var more = $(".more")[0];
 	
@@ -40,30 +22,28 @@ window.onload = function() {
 	}, false);
 
 	// 滚动鼠标时切换页面
-	if(isScroll) {
-		document.addEventListener('mousewheel', function(event){
-			var event = event || window.event,
-				index;
-			for(var i=0; i<select.length;i++) {
-				if(select[i].checked) {
-					index = i;
-				}
+	document.addEventListener('mousewheel', function(event){
+		var event = event || window.event,
+			index;
+		for(var i=0; i<select.length;i++) {
+			if(select[i].checked) {
+				index = i;
 			}
-			if(event.wheelDelta < 0) {
-				index++;
-				if(index == select.length) {
-					index = select.length-1;
-				}
-			} else {
-				index--;
-				if(index < 0) {
-					index = 0;
-				}
+		}
+		if(event.wheelDelta < 0) {
+			index++;
+			if(index == select.length) {
+				index = select.length-1;
 			}
-			select[index].checked = true;
-			scroll();
-		}, false);
-	}
+		} else {
+			index--;
+			if(index < 0) {
+				index = 0;
+			}
+		}
+		select[index].checked = true;
+		scroll();
+	}, false);
 
 
 	// 页面切换函数
