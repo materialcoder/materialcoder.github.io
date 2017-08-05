@@ -2,26 +2,6 @@ window.onload = function() {
 	var $ = function(e) {
 		return document.querySelectorAll(e);
 	};
-	
-	var isScroll = false; //加载时禁止滚动
-	// 加载进度条
-	(function loading() {
-		var imgs = $('img');
-		var num = 0;
-		var len = imgs.length;
-		imgs.forEach(function(item, index) {
-			var oImg = new Image();
-			oImg.onload = function() {
-				num++;
-				$(".loading b")[0].innerHTML = parseInt(num/len * 100) + "%";
-				if(num > len) {
-					$('.loading')[0].style.display = "none";
-					isScroll = true;
-				}
-			}
-			oImg.src = item.src
-		})
-	})();
 
 	var more = $(".more")[0];
 	
