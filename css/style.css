@@ -181,6 +181,12 @@ a {
 	position: relative;
 }
 
+@media screen and (max-width: 500px) {
+	.container .nav {
+		right: -10px;
+	}
+}
+
 /*首页*/
 .container .content .banner {
 	background: url(../imgs/bg2.jpg) no-repeat;
@@ -453,7 +459,21 @@ a {
 		width: 80%;
 	}
 }
-
+@media screen and (max-width: 500px) {
+	.education .education-cont .right {
+		width: 100%;
+	}
+	.education .education-item {
+		padding: 10px 0px;
+		font-family: "Microsoft YaHei";
+	}
+}
+@media screen and (max-width: 375px) {
+	.education .education-item p:last-child {
+		display: none;
+	}
+	
+}
 
 /*skills页*/
 .container .content .skills {
@@ -543,6 +563,44 @@ a {
 	transition: all .5s ease-in-out 1.5s;
 }
 
+@media screen and (max-width: 500px) {
+	.container .content .skills .bars,
+	.container .content .skills .desc {
+		float: none;
+		width: 100%;
+	}
+	.container .content .skills .desc {
+		padding: 10px 0;
+	}
+	.container .content .skills .skills-cont {
+		width: 80%;
+		padding: 10;
+		top: 58%;
+	}
+	.bar-item {
+		margin-top: 10px;
+	}
+}
+@media screen and (max-width: 320px) {
+	.container .content .skills h2 {
+		width: 190px;
+		height: 50px;
+		line-height: 50px;
+		padding-top: 80px;
+		font-size: 26px;
+	}
+	.container .content .skills .desc {
+		padding: 0;
+	}
+	.container .content .skills .desc p {
+		font-size: 14px;
+		line-height: 20px;
+	}
+	.bar-item:last-child {
+		margin-bottom: 0px;
+	}
+}
+
 
 /*成果展示页*/
 .container .content .portfolio {
@@ -615,9 +673,26 @@ a {
 	}
 }
 
+@media screen and (max-width: 375px) {
+	.container .content .portfolio .portfolio-cont {
+		width: 80%;
+		margin-left: -43%;
+	}
+} 
+
 @media screen and (max-width: 320px) {
+	.container .content .portfolio .portfolio-cont {
+		width: 70%;
+		margin-left: -35%;
+	}
 	.container .content .portfolio .portfolio-cont_item {
 		width: 98%;
 		margin: 2px calc(2%/2);
 	}
+	.container .content .portfolio .portfolio-cont_item:nth-child(4),
+	.container .content .portfolio .portfolio-cont_item:nth-child(5),
+	.container .content .portfolio .portfolio-cont_item:nth-child(6) {
+		display: none;
+	}
+
 }
