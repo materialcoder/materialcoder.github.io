@@ -7,7 +7,8 @@ var imgs = $('img');
 var num = 0;
 var len = imgs.length;
 var isScroll = false;
-imgs.forEach(function(item, index) {
+
+foreach(imgs, function(item, index) {
 	var oImg = new Image();
 	oImg.onload = function() {
 		oImg.onload = null;
@@ -21,3 +22,14 @@ imgs.forEach(function(item, index) {
 	}
 	oImg.src = item.src
 });
+
+function foreach(ele, handler) {
+	if(ele.forEach) {
+		ele.forEach(handler);
+	} else {
+		// IE不支持forEach方法
+		for(var i=0;i<ele.length;i++) {
+			handler(ele[i], i);
+		}
+	}
+}
