@@ -1,13 +1,14 @@
 window.onload = function() {
 	var $ = function(e) {
-		return document.querySelectorAll(e);
+		if(document.querySelectorAll(e).length === 1) {
+			return document.querySelector(e);
+		} else {
+			return document.querySelectorAll(e);
+		}
 	};
 
-	var more = $(".more")[0];
-	
-	var select = $('input');
-	var content = $('#content')[0];
 
+	// 不同浏览器兼容
 	var EventUtil = {
 		addHandler: function(element, type, handler) {
 			if(element.addEventListener) {
@@ -38,6 +39,112 @@ window.onload = function() {
 		}
 	};
 
+	// 自定义事件
+	function EventTarget() {
+		this.handlers = {};
+	}
+
+	EventTarget.prototype = {
+		constructor: EventTarget,
+		
+		on: function(type, handler) {
+			if(typeof this.handlers[type] == "undefined") {
+				this.handlers[type] = [];
+			}
+			this.handlers[type].push(handler);
+			return this;
+		},
+
+		fire: function(event) {
+			if(!event.target) {
+				event.target = this;
+			}
+			if(this.handlers[event.type] instanceof Array) {
+				var handlers = this.handlers[event.type];
+				for(var i=0, len=handlers.length;i<len;i++) {
+					handlers[i](event);
+				}
+			}
+			return this;
+		},
+		cancel: function(type, handler) {
+			if(this.handlers[type] instanceof Array) {
+				var handlers = this.handlers[type];
+				for(var i=0,len=handlers.length;i<len;i++) {
+					if(handlers[i] === handler) {
+						break;
+					}
+				}
+				handlers.splice(i,1);
+			}
+		}
+	};
+
+
+	// on 和 leave事件处理函数
+	var EventHandler = {
+		loadHandler: function(event) {
+			switch(event.index) {
+				case 1:
+					var title = $(".banner h1");
+					var p = $(".banner p");
+					title.style.transform = "translateX(0px)";
+					title.style.opacity = 1;
+					p.style.transform = "translateX(0px)";
+					p.style.opacity = 1;
+					title.style.transition = "all .5s ease-in-out .8s";
+					p.style.transition = "all .5s ease-in-out .8s";
+				case 4:
+					var bar = $(".bar-item_bar");
+					var tootip = $(".bar-item_tooltip");
+					for(var i=0, len = bar.length;i<len;i++) {
+						bar[i].style.width = bar[i].dataset.value + "%";
+						tootip[i].innerHTML = bar[i].dataset.value + "%";
+						tootip[i].style.right = (100 - bar[i].dataset.value + 3) +"%";
+						tootip[i].style.opacity = 1;
+						bar[i].style.transition = "all .5s ease-in-out .5s";
+						tootip[i].style.transition = "all .5s ease-in-out 1s";
+					}
+					break;
+			}
+			// console.log("page "+event.index+" load");
+		},
+
+		leaveHandler: function(event) {
+			switch(event.index){
+				case 1:
+					var title = $(".banner h1");
+					var p = $(".banner p");
+					title.style.transform = "translateX(-300px)";
+					title.style.opacity = 0;
+					p.style.transform = "translateX(300px)";
+					p.style.opacity = 0;
+					title.style.transition = "all .5s ease-in-out";
+					p.style.transition = "all .5s ease-in-out";
+				case 4:
+					var bar = $(".bar-item_bar");
+					var tootip = $(".bar-item_tooltip");
+					for(var i=0, len = bar.length;i<len;i++) {
+						bar[i].style.width = "0%";
+						tootip[i].style.right = 0;
+						tootip[i].style.opacity = 0;
+						bar[i].style.transition = "all .5s ease-in-out";
+						tootip[i].style.transition = "all .5s ease-in-out"
+					}
+			}
+			// console.log("page "+event.index+" leave");
+		}
+	};
+
+
+	var more = $(".more"); //首页more按钮
+	
+	var select = $('#nav input'); //导航点
+	var content = $('#content'); //所有内容
+	
+	var target = new EventTarget();
+
+
 	// 点击更多按钮时切换页面
 	EventUtil.addHandler(more,'click', function(){
 		select[1].checked = true;
@@ -45,10 +152,11 @@ window.onload = function() {
 	});
 
 	// 点击导航点时切换页面
-	EventUtil.addHandler($("#nav")[0], 'click', scroll);
+	EventUtil.addHandler($("#nav"), 'click', scroll);
 
 	// 滚动鼠标时切换页面
 	if(isScroll) {
+		target.on("load", EventHandler.loadHandler).fire({type:"load", index: 1}).cancel("load", EventHandler.loadHandler);
 		EventUtil.addHandler(document, "mousewheel", slideByMouseAndKey);
 		EventUtil.addHandler(document, "keyup", slideByMouseAndKey);
 	}
@@ -56,13 +164,20 @@ window.onload = function() {
 
 	// 页面切换函数
 	function scroll() {
+		var top = parseInt(content.style.top) || 0;
+		var index = top/(-100);
+		var curIndex = 0;
 		for(var i=0, len=select.length;i<len;i++) {
 			if(select[i].checked) {
 				content.style.top = (-100*i) + "%";
-				if(i == 3) {
-					showBar();
-				}
+				curIndex = i;
 			}
+		}
+
+		// 添加load和leave事件
+		if(curIndex != index) {
+			target.on("load", EventHandler.loadHandler).fire({type:"load", index: (curIndex+1)}).cancel("load", EventHandler.loadHandler);
+			target.on("leave", EventHandler.leaveHandler).fire({type:"leave", index: (index+1)}).cancel("leave", EventHandler.leaveHandler);
 		}
 	}
 
@@ -78,7 +193,7 @@ window.onload = function() {
 		}
 	}
 
-	// 通过鼠标滚轮和键盘俺就切换页面方法
+	// 通过鼠标滚轮或键盘按键切换页面方法
 	function slideByMouseAndKey(event) {
 		var event = EventUtil.getEvent(event);
 		var index = 0;

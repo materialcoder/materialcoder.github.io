@@ -190,7 +190,7 @@ a {
 
 /*首页*/
 .container .content .banner {
-	background: url(../imgs/bg.jpg) no-repeat;
+	background: url(../imgs/bg2.jpg) no-repeat;
 	background-size: cover;
 }
 .container .content .banner::before {
@@ -219,6 +219,8 @@ a {
 	border-top: 2px solid #fff;
 	border-bottom: 2px solid #fff;
 	margin: 0 14%;
+	transform: translateX(-300px);
+	opacity: 0;
 }
 .container .content .banner p {
 	font-size: 16px;
@@ -227,6 +229,8 @@ a {
 	padding-top: 30px;
 	width: 80%;
 	margin: 0 auto;
+	transform: translateX(300px);
+	opacity: 0;
 }
 .container .content .banner i{
 	font-size: 32px;
@@ -600,6 +604,15 @@ a {
 	.bar-item:last-child {
 		margin-bottom: 0px;
 	}
+	.container .content .skills .bar-item {
+		width: calc(100% - 124px);
+		margin-left: 124px;
+	}
+	.container .content .skills .bar-item_label {
+		font-size: 16px;
+		width: 108px;
+		left: -124px;
+	}
 }
 
 
@@ -680,13 +693,20 @@ a {
 
 }
 
+@media screen and (max-width: 1028px) {
+	.container .content .portfolio .portfolio-cont {
+		width: 80%;
+		margin-left: -40%;
+	}
+}
+
 @media screen and (max-width: 760px) {
 	.container .content .portfolio .portfolio-cont {
 		top: 12%;
 	}
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 550px) {
 	.container .content .portfolio .portfolio-cont {
 		width: 80%;
 		margin-left: -40%;
