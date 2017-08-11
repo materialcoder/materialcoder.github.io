@@ -190,7 +190,7 @@ a {
 
 /*首页*/
 .container .content .banner {
-	background: url(../imgs/bg2.jpg) no-repeat;
+	background: url(../imgs/bg.jpg) no-repeat;
 	background-size: cover;
 }
 .container .content .banner::before {
