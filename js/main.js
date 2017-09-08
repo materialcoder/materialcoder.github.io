@@ -92,8 +92,8 @@ window.onload = function() {
 					title.style.opacity = 1;
 					p.style.transform = "translateX(0px)";
 					p.style.opacity = 1;
-					title.style.transition = "all .5s ease-in-out .8s";
-					p.style.transition = "all .5s ease-in-out .8s";
+					title.style.transition = "all .5s ease-in-out .5s";
+					p.style.transition = "all .5s ease-in-out .5s";
 				case 4:
 					var bar = $(".bar-item_bar");
 					var tootip = $(".bar-item_tooltip");
